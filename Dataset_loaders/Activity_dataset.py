@@ -38,17 +38,17 @@ class ActivityDataset:
         return train_x, train_y, val_x, val_y, test_x, test_y
 
 
-    def load(self) -> Self:
+    def load(self, num_of_workers=16) -> Self:
         train_x, train_y, val_x, val_y, test_x, test_y = self.__load_numpy__()
 
         train = self.CustomDataset(train_x, train_y)
-        self.train = DataLoader(train, batch_size=1024, shuffle=True, num_workers=25)
+        self.train = DataLoader(train, batch_size=1024, shuffle=True, num_workers=num_of_workers)
 
         val = self.CustomDataset(val_x, val_y)
-        self.val = DataLoader(val, batch_size=1024, num_workers=25, pin_memory=True)
+        self.val = DataLoader(val, batch_size=1024, num_workers=num_of_workers, pin_memory=True)
 
         test = self.CustomDataset(test_x, test_y)
-        self.test = DataLoader(test, batch_size=1024, num_workers=25)
+        self.test = DataLoader(test, batch_size=1024, num_workers=num_of_workers)
         return self
 
     def get_dataloaders(self):
