@@ -133,7 +133,7 @@ if __name__ == "__main__":
         ModelCheckpoint(dirpath='checkpoints/MLP_activity', filename='{epoch}-{val F1 score:.5f}', save_last=True,monitor='val F1 score', mode='max', save_top_k=5)
     ]
 
-    trainer = L.Trainer(max_epochs=80, accelerator='gpu', callbacks=callbacks)
+    trainer = L.Trainer(max_epochs=150, accelerator='gpu', callbacks=callbacks)
     trainer.fit(model=autoencoder, train_dataloaders=train, val_dataloaders=val)
 
     print('predicting')
