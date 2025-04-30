@@ -27,7 +27,7 @@ class ActivityDataset:
             return len(self.data_x)
 
     def __load_numpy__(self):
-        with np.load('../Dataset/dataset_activity.npz', allow_pickle=True) as dataset:
+        with np.load('./Dataset/dataset_activity.npz', allow_pickle=True) as dataset:
             self.col_names = dataset['col_names'].tolist()
             train_x = dataset['train_x']
             train_y = dataset['train_y']
