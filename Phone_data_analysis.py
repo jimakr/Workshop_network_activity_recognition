@@ -15,7 +15,7 @@ tensor_data = tensor_data.to(device)
 # Make sure you have the exact class definition of your model
  # replace with your actual model class and file
 
-model = LitMLP.load_from_checkpoint('./Networks/checkpoints/MLP_activity/last-v2.ckpt')
+model = LitMLP.load_from_checkpoint('./Networks/checkpoints/MLP_activity/last.ckpt')
 
 # Step 4: Set model to eval mode and move to device
 model.eval()
